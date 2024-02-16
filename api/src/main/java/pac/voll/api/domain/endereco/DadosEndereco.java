@@ -1,19 +1,28 @@
-package pac.voll.api.domain;
+package pac.voll.api.domain.endereco;
 
-public class Endereco {
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
+public class DadosEndereco {
+
+    @NotBlank
     private String logradouro;
 
     private String numero;
 
     private String complemento;
 
+    @NotBlank
     private String bairro;
 
+    @NotBlank
     private String cidade;
 
+    @NotBlank
     private String uf;
 
+    @NotBlank
+    @Pattern(regexp = "\\d{8}")
     private String cep;
 
     public String getLogradouro() {

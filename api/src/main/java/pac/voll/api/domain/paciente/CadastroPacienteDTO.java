@@ -1,16 +1,30 @@
-package pac.voll.api.domain;
+package pac.voll.api.domain.paciente;
 
-public class Paciente {
+import javax.validation.Valid;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 
+import pac.voll.api.domain.endereco.DadosEndereco;
+
+public class CadastroPacienteDTO {
+
+    @NotBlank
     private String nome;
 
+    @NotBlank
+    @Email
     private String email;
 
+    @NotBlank
     private String telefone;
 
+    @NotBlank
+    @Pattern(regexp = "\\d{11}")
     private String cpf;
 
-    private Endereco endereco;
+    @Valid
+    private DadosEndereco endereco;
 
     public String getNome() {
         return nome;
@@ -44,11 +58,11 @@ public class Paciente {
         this.cpf = cpf;
     }
 
-    public Endereco getEndereco() {
+    public DadosEndereco getEndereco() {
         return endereco;
     }
 
-    public void setEndereco(Endereco endereco) {
+    public void setEndereco(DadosEndereco endereco) {
         this.endereco = endereco;
     }
 }
