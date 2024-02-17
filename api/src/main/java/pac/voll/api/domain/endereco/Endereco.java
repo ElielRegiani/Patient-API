@@ -19,6 +19,9 @@ public class Endereco {
 
     private String cep;
 
+    public Endereco() {
+    }
+
     public Endereco(DadosEndereco endereco) {
         this.logradouro = endereco.getLogradouro();
         this.numero = endereco.getNumero();
@@ -83,5 +86,29 @@ public class Endereco {
 
     public void setCep(String cep) {
         this.cep = cep;
+    }
+
+    public void atualizarInformacoes(Endereco endereco) {
+        if (endereco.getLogradouro() != null) {
+            this.logradouro = endereco.getLogradouro();
+        }
+        if (endereco.getUf() != null) {
+            this.uf = endereco.getUf();
+        }
+        if (endereco.getCidade() != null) {
+            this.cidade = endereco.getCidade();
+        }
+        if (endereco.getCep() != null) {
+            this.cep = endereco.getCep();
+        }
+        if (endereco.getNumero() != null) {
+            this.numero = endereco.getNumero();
+        }
+        if (endereco.getBairro() != null) {
+            this.bairro = endereco.getBairro();
+        }
+        if (endereco.getComplemento() != null) {
+            this.complemento = endereco.getComplemento();
+        }
     }
 }

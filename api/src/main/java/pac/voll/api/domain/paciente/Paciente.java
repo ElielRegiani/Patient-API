@@ -28,6 +28,9 @@ public class Paciente {
     @Embedded
     private Endereco endereco;
 
+    public Paciente() {
+    }
+
     public Paciente(CadastroPacienteDTO pacienteDTO) {
         this.nome = pacienteDTO.getNome();
         this.email = pacienteDTO.getEmail();
@@ -82,5 +85,17 @@ public class Paciente {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public void atualizarInformacoes(AtualizacaoPacienteDTO atualizacaoPacienteDTO) {
+        if (atualizacaoPacienteDTO.getNome() != null) {
+            this.nome = atualizacaoPacienteDTO.getNome();
+        }
+        if (atualizacaoPacienteDTO.getTelefone() != null) {
+            this.telefone = atualizacaoPacienteDTO.getTelefone();
+        }
+        if (atualizacaoPacienteDTO.getEndereco() != null) {
+            this.endereco.atualizarInformacoes(atualizacaoPacienteDTO.getEndereco());
+        }
     }
 }
