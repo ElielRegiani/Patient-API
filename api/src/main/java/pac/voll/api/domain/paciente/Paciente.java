@@ -25,6 +25,8 @@ public class Paciente {
 
     private String cpf;
 
+    private boolean ativo;
+
     @Embedded
     private Endereco endereco;
 
@@ -37,6 +39,7 @@ public class Paciente {
         this.telefone = pacienteDTO.getTelefone();
         this.cpf = pacienteDTO.getCpf();
         this.endereco = new Endereco(pacienteDTO.getEndereco());
+        this.ativo = true;
     }
 
     public String getNome() {
@@ -97,5 +100,17 @@ public class Paciente {
         if (atualizacaoPacienteDTO.getEndereco() != null) {
             this.endereco.atualizarInformacoes(atualizacaoPacienteDTO.getEndereco());
         }
+    }
+
+    public boolean isAtivo() {
+        return ativo;
+    }
+
+    public void setAtivo(boolean ativo) {
+        this.ativo = ativo;
+    }
+
+    public void excluir() {
+        this.ativo = false;
     }
 }
