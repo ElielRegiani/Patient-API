@@ -3,26 +3,28 @@ package pac.voll.api.domain.paciente;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 import pac.voll.api.domain.endereco.DadosEndereco;
 
 public class CadastroPacienteDTO {
 
-    @NotBlank
+    @NotBlank(message = "{nome.obrigatorio}")
     private String nome;
 
-    @NotBlank
-    @Email
+    @NotBlank(message = "{email.obrigatorio}")
+    @Email(message = "{email.invalido}")
     private String email;
 
-    @NotBlank
+    @NotBlank(message = "{telefone.obrigatorio}")
     private String telefone;
 
-    @NotBlank
-    @Pattern(regexp = "\\d{11}")
+    @NotBlank(message = "{crm.obrigatorio}")
+    @Pattern(regexp = "\\d{11}", message = "{crm.invalido}")
     private String cpf;
 
+    @NotNull(message = "{endereco.obrigatorio}")
     @Valid
     private DadosEndereco endereco;
 
